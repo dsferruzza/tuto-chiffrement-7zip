@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times,
+              'Times New Roman', serif,
+              "Hiragino Sans GB", "STXihei", "微软雅黑";
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+span.backtick {
+  border:1px solid #EAEAEA;
+  border-radius:3px;
+  background:#F8F8F8;
+  padding:0 3px 0 3px;
+}
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+pre , code, kbd, samp { 
+  color: #000; 
+  font-family: monospace; 
+  font-size: 0.88em; 
+  border-radius:3px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC; 
+}
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px;}
+pre code { border: 0px !important; }
+code { padding: 0 3px 0 3px; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%; outline:none;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style></head><body><h1 id="chiffrer-ses-donnees-avec-7-zip">Chiffrer ses données avec 7-zip</h1>
+
+<h2 id="sommaire">Sommaire</h2>
+
+<p></p><ul>
+  <li><a href="#chiffrer-ses-donnees-avec-7-zip">Chiffrer ses données avec 7-zip</a>
+  <ul>
+    <li><a href="#sommaire">Sommaire</a></li>
+    <li><a href="#prerequis">Prérequis</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#chiffrer-avec-7-zip">Chiffrer avec 7-zip</a></li>
+    <li><a href="#dechiffrer-avec-7-zip">Déchiffrer avec 7-zip</a></li>
+    <li><a href="#vulnerabilites-du-chiffrement">Vulnérabilités du chiffrement</a>
+    <ul>
+      <li><a href="#attaques-par-force-brute">Attaques par force brute</a></li>
+      <li><a href="#faille-dans-lalgorithme-de-chiffrement">Faille dans l'algorithme de chiffrement</a></li>
+    </ul></li>
+    <li><a href="#licence">Licence</a></li>
+  </ul></li>
+</ul>
+<p></p>
+
+<h2 id="prerequis">Prérequis</h2>
+
+<ul>
+<li>Microsoft Windows</li>
+<li>7-zip (<a href="http://www.7-zip.org/">http://www.7-zip.org/</a>)</li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Le chiffrement, ou cryptage, consiste à rendre une donnée 
+inexploitable à toute personne ne possédant pas la clé de 
+(dé)chiffrement.</p>
+
+<p>Avec 7-zip :</p>
+
+<ul>
+<li>on va chiffrer des fichiers et/ou des dossiers</li>
+<li>le chiffrement est dit <em>symétrique</em> (la clé de déchiffrement est identique à la clé de chiffrement)</li>
+<li>la clé est un mot de passe</li>
+</ul>
+
+<p>7-zip est avant tout un logiciel de création d'archives, ce qui veut 
+dire qu'il permet de compresser les fichiers avant de les chiffrer.
+Créer des archives chiffrées avec 7-zip est donc idéal pour <strong>échanger</strong> des données sensible ou <strong>stocker</strong> ces données.</p>
+
+<p>Par contre, créer une archive 7-zip chiffrée implique d'avoir les données <strong>en clair</strong>
+ sur son disque dur.
+De même, lors de la lecture du contenu d'une archive, 7-zip va 
+l'extraire dans un dossier temporaire pour permettre aux logiciels 
+concernés d'accéder aux données.</p>
+
+<p>Chiffrer ses données grâce à 7-zip ne sécurise donc <strong>pas</strong> les données sur les ordinateurs qui vont créer ou ouvrir l'archive !</p>
+
+<p>L'intérêt est, par exemple, de protéger les données pendant leur 
+envoi par email.
+Si l'email est intercepté par une personne tierce, celle-ci ne pourra 
+par lire les données de l'archive sans son mot de passe.
+C'est également appréciable lorsqu'on sait que la plupart des grands 
+fournisseurs de boites email ne suppriment jamais vraiment nos données 
+et y ont accès.</p>
+
+<h2 id="chiffrer-avec-7-zip">Chiffrer avec 7-zip</h2>
+
+<p>Pour créer une archive chiffrée, il faut procéder de la même manière que pour créer une archive normal avec 7-zip.</p>
+
+<p>La plupart du temps, on sélectionne les fichiers/dossiers qu'on veut placer dans l'archive, on fait un clic droit, et on choisi <code>7-zip &gt; Ajouter à l'archive...</code>.
+On peut également, depuis la fenêtre de <strong>7-zip File Manager</strong>, sélectionner les fichiers/dossiers et cliquer sur <code>Ajouter</code>.</p>
+
+<p>Dans les deux cas, la boite de dialogue de création d'archive s'ouvre :</p>
+
+<p><img src="Chiffrer%20ses%20donn%C3%A9es%20avec%207-zip_fichiers/creation.png" alt="Boite de dialogue de création d'archive"></p>
+
+<p>Voici les principaux réglages pour une archive classique :</p>
+
+<ul>
+<li><code>Archive</code> : le nom et l'emplacement où sera créée l'archive</li>
+<li><code>Format de fichier</code> : je recommande de choisir <strong>7z</strong> ; <strong>zip</strong> est moins performant mais peut servir pour être sûr que l'archive soit lisible par tout le monde</li>
+<li><code>Niveau de compression</code> : je recommande <strong>Ultra</strong> pour des données de type textuelles, <strong>Normal</strong> pour des médias dans des formats déjà compressés (jpeg, mp3, ...), ou <strong>Aucune</strong> si la compression n'est pas nécessaire ou non désirée (très gros fichiers = compression lente)</li>
+</ul>
+
+<p>Pour chiffrer l'archive, il faut regarder dans la section <code>Cryptage</code>.
+On a plusieurs réglages :</p>
+
+<ul>
+<li>le mot de passe avec lequel on veut chiffrer l'archive (il est masqué à la saisie, donc il faut le saisir deux fois)</li>
+<li><code>Afficher le mot de passe</code> permet de ne pas masquer le mot de passe lors de sa saisie et supprime donc le champ de vérification mentionné juste avant</li>
+<li><code>Méthode de cryptage</code> : je recommande AES-256</li>
+<li><code>Crypter les noms de fichier</code> : je recommande de l'activer</li>
+</ul>
+
+<p>Il suffit ensuite de valider et l'archive sera créée !</p>
+
+<h2 id="dechiffrer-avec-7-zip">Déchiffrer avec 7-zip</h2>
+
+<p>Ouvrir une archive chiffrée se fait de la même manière qu'une archive normale.
+La plupart du temps, il suffit de double cliquer dessus (depuis l'explorateur de fichiers ou depuis <strong>7-zip File Manager</strong>).</p>
+
+<p>Si <code>Crypter les noms de fichier</code> a été coché à la créations de l'archive, le mot de passe est demandé :</p>
+
+<p><img src="Chiffrer%20ses%20donn%C3%A9es%20avec%207-zip_fichiers/ouverture.png" alt="Boite de dialogue d'ouverture d'archive chiffrée"></p>
+
+<p>Lorsque le mot de passe a été saisi, il est possible d'accéder au contenu de l'archive normalement.</p>
+
+<p>Si <code>Crypter les noms de fichier</code> n'a pas été coché à la 
+créations de l'archive, l'archive s'ouvrira normalement et on pourra 
+voir la liste des fichiers/dossiers qu'elle contient.
+Le mot de passe sera demandé dès qu'on accédera à un des fichiers.</p>
+
+<h2 id="vulnerabilites-du-chiffrement">Vulnérabilités du chiffrement</h2>
+
+<p>Déjà, comme expliqué en introduction, 7-zip n'apporte pas de sécurité sur les ordinateurs amenés à créer ou ouvrir l'archive.
+L'intérêt est d'empêcher des tiers de pouvoir ouvrir l'archive.</p>
+
+<p>Aucune sécurité n'est infaillible, et il faut comprendre comment une archive peut être ouverte sans la clé.</p>
+
+<h3 id="attaques-par-force-brute">Attaques par force brute</h3>
+
+<p>Une attaque par force brute (ou <em>brute-force</em> en anglais) concise à essayer tous les mots de passe possibles jusqu'à trouver le bon.</p>
+
+<p>Il existe des variantes, comme <em>l'attaque par dictionnaire</em> 
+qui va essayer en priorité des mots de passes communs contenus dans une 
+liste (des mots courants par exemple), dans le but de trouver plus 
+rapidement le bon mot de passe.</p>
+
+<p>Avec le matériel moderne, il est possible de tester très rapidement beaucoup de mots de passe pour un coût relativement faible.
+Pour ralentir ce genre d'attaques, il y a deux axes possibles :</p>
+
+<ul>
+<li>utiliser une large gamme de caractères dans le mot de passe (caractères spéciaux, majuscules, chiffres, ...)</li>
+<li>utiliser un mot de passe long (contenant beaucoup de caractères)</li>
+</ul>
+
+<p>La deuxième solution est bien plus efficace, car le nombre d'essais équivaut au nombre de caractères possibles <strong>puissance</strong> le nombre de caractères du mot de passe.
+Par exemple :</p>
+
+<ul>
+<li>si on utilise les chiffres ainsi que tout l'alphabet avec majuscules
+ et minuscules dans un mot de passe de 5 caractères, cela fait 
+(10+26*2)^5 = 916 132 832</li>
+<li>si on n'utilise que des chiffres dans un mot de passe de 10 caractères, cela fait 10^10 = 10 000 000 000</li>
+</ul>
+
+<p>D'après la documentation de 7-zip, une organisation avec un budget 
+d'un milliard de dollars et pouvant tester 10 milliards de mots de passe
+ à la seconde (avec une puissance processeur qui double tous les deux 
+ans) mettrait <strong>4 ans</strong> à trouver un mot de passe de <strong>13 caractères</strong>.</p>
+
+<h3 id="faille-dans-lalgorithme-de-chiffrement">Faille dans l'algorithme de chiffrement</h3>
+
+<p>L'algorithme de chiffrement est la méthode qui permet de chiffrer les données.
+Comme on peut le voir lorsqu'on crée une archive chiffrée, 7-zip utilise l'algorithme AES-256.</p>
+
+<p>La plupart des algorithmes de chiffrement sont publics et connus de 
+tous, mais sont conçu de manière à ce qu'il ne soit pas possible de 
+déchiffrer des données sans connaitre la clé.
+Il est déjà arrivé que quelqu'un découvre une faille dans la conception 
+d'un algorithme qui permette de découvrir le mot de passe ou d'accélérer
+ sa découverte.
+On dit alors que l'algorithme a été cassé.</p>
+
+<p>L'AES date des années 2000, et n'a, pour l'heure, par été cassé.
+Il est utilisé dans beaucoup d'organisation diverses, et il est peut 
+probable que quelqu'un réussisse à le casser avant un moment.
+Et dans ce cas là, nos petites données échangées par email ne seraient 
+pas la cible la plus critique...</p>
+
+<h2 id="licence">Licence</h2>
+
+<p>David Sferruzza, 2013
+<a href="https://creativecommons.org/licenses/by-sa/2.0/deed.fr">Creative Commons 2.0 BY-SA</a></p>
+</body></html>

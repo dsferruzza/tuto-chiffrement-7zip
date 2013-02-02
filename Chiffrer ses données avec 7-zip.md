@@ -20,7 +20,7 @@ Avec 7-zip :
 - la clé est un mot de passe
 
 7-zip est avant tout un logiciel de création d'archives, ce qui veut dire qu'il permet de compresser les fichiers avant de les chiffrer.
-Créer des archives chiffrées avec 7-zip est donc idéal pour **échanger** des données sensible ou **stocker** ces données.
+Créer des archives chiffrées avec 7-zip est donc idéal pour **échanger** des données sensibles ou **stocker** ces données.
 
 Par contre, créer une archive 7-zip chiffrée implique d'avoir les données **en clair** sur son disque dur.
 De même, lors de la lecture du contenu d'une archive, 7-zip va l'extraire dans un dossier temporaire pour permettre aux logiciels concernés d'accéder aux données.
@@ -28,12 +28,14 @@ De même, lors de la lecture du contenu d'une archive, 7-zip va l'extraire dans 
 Chiffrer ses données grâce à 7-zip ne sécurise donc **pas** les données sur les ordinateurs qui vont créer ou ouvrir l'archive !
 
 L'intérêt est, par exemple, de protéger les données pendant leur envoi par email.
-Si l'email est intercepté par une personne tierce, celle-ci ne pourra par lire les données de l'archive sans son mot de passe.
+Si l'email est intercepté par une personne tierce, celle-ci ne pourra pas lire les données de l'archive sans son mot de passe.
 C'est également appréciable lorsqu'on sait que la plupart des grands fournisseurs de boites email ne suppriment jamais vraiment nos données et y ont accès.
+
+*Pour chiffrer des données sur lesquelles on est en train de travailler, il vaut mieux se tourner vers des solutions de chiffrement à la volée, comme [TrueCrypt](http://www.truecrypt.org/), [GPG](https://fr.wikipedia.org/wiki/GNU_Privacy_Guard) ou [EncFS](http://www.arg0.net/encfs).*
 
 ## Chiffrer avec 7-zip
 
-Pour créer une archive chiffrée, il faut procéder de la même manière que pour créer une archive normal avec 7-zip.
+Pour créer une archive chiffrée, il faut procéder de la même manière que pour créer une archive normale avec 7-zip.
 
 La plupart du temps, on sélectionne les fichiers/dossiers qu'on veut placer dans l'archive, on fait un clic droit, et on choisi `7-zip > Ajouter à l'archive...`.
 On peut également, depuis la fenêtre de **7-zip File Manager**, sélectionner les fichiers/dossiers et cliquer sur `Ajouter`.
@@ -50,7 +52,7 @@ Voici les principaux réglages pour une archive classique :
 Pour chiffrer l'archive, il faut regarder dans la section `Cryptage`.
 On a plusieurs réglages :
 - le mot de passe avec lequel on veut chiffrer l'archive (il est masqué à la saisie, donc il faut le saisir deux fois)
-- `Afficher le mot de passe` permet de ne pas masquer le mot de passe lors de sa saisie et supprime donc le champ de vérification mentionné juste avant
+- `Afficher le mot de passe` permet de ne pas masquer le mot de passe lors de sa saisie et supprime donc un des deux champs de saisie du mot de passe
 - `Méthode de cryptage` : je recommande AES-256
 - `Crypter les noms de fichier` : je recommande de l'activer
 
