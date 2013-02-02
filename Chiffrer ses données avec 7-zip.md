@@ -53,7 +53,7 @@ Pour chiffrer l'archive, il faut regarder dans la section `Cryptage`.
 On a plusieurs réglages :
 - le mot de passe avec lequel on veut chiffrer l'archive (il est masqué à la saisie, donc il faut le saisir deux fois)
 - `Afficher le mot de passe` permet de ne pas masquer le mot de passe lors de sa saisie et supprime donc un des deux champs de saisie du mot de passe
-- `Méthode de cryptage` : je recommande AES-256
+- `Méthode de cryptage` : je recommande **AES-256**
 - `Crypter les noms de fichier` : je recommande de l'activer
 
 Il suffit ensuite de valider et l'archive sera créée !
@@ -63,29 +63,29 @@ Il suffit ensuite de valider et l'archive sera créée !
 Ouvrir une archive chiffrée se fait de la même manière qu'une archive normale.
 La plupart du temps, il suffit de double cliquer dessus (depuis l'explorateur de fichiers ou depuis **7-zip File Manager**).
 
-Si `Crypter les noms de fichier` a été coché à la créations de l'archive, le mot de passe est demandé :
+Si `Crypter les noms de fichier` a été coché à la création de l'archive, le mot de passe est demandé :
 
 ![Boite de dialogue d'ouverture d'archive chiffrée](images/ouverture.png)
 
 Lorsque le mot de passe a été saisi, il est possible d'accéder au contenu de l'archive normalement.
 
-Si `Crypter les noms de fichier` n'a pas été coché à la créations de l'archive, l'archive s'ouvrira normalement et on pourra voir la liste des fichiers/dossiers qu'elle contient.
+Si `Crypter les noms de fichier` n'a pas été coché à la création de l'archive, l'archive s'ouvrira normalement et on pourra voir la liste des fichiers/dossiers qu'elle contient.
 Le mot de passe sera demandé dès qu'on accédera à un des fichiers.
 
 ## Vulnérabilités du chiffrement
 
-Déjà, comme expliqué en introduction, 7-zip n'apporte pas de sécurité sur les ordinateurs amenés à créer ou ouvrir l'archive.
+Premièrement, comme expliqué en introduction, 7-zip n'apporte pas de sécurité sur les ordinateurs amenés à créer ou ouvrir l'archive.
 L'intérêt est d'empêcher des tiers de pouvoir ouvrir l'archive.
 
 Aucune sécurité n'est infaillible, et il faut comprendre comment une archive peut être ouverte sans la clé.
 
 ### Attaques par force brute
 
-Une attaque par force brute (ou *brute-force* en anglais) concise à essayer tous les mots de passe possibles jusqu'à trouver le bon.
+Une attaque par force brute (ou *brute-force* en anglais) consiste à essayer tous les mots de passe possibles jusqu'à trouver le bon.
 
 Il existe des variantes, comme *l'attaque par dictionnaire* qui va essayer en priorité des mots de passes communs contenus dans une liste (des mots courants par exemple), dans le but de trouver plus rapidement le bon mot de passe.
 
-Avec le matériel moderne, il est possible de tester très rapidement beaucoup de mots de passe pour un coût relativement faible.
+Avec du matériel moderne, il est possible de tester très rapidement beaucoup de mots de passe pour un coût relativement faible.
 Pour ralentir ce genre d'attaques, il y a deux axes possibles :
 
 - utiliser une large gamme de caractères dans le mot de passe (caractères spéciaux, majuscules, chiffres, ...)
@@ -93,8 +93,8 @@ Pour ralentir ce genre d'attaques, il y a deux axes possibles :
 
 La deuxième solution est bien plus efficace, car le nombre d'essais équivaut au nombre de caractères possibles **puissance** le nombre de caractères du mot de passe.
 Par exemple :
-- si on utilise les chiffres ainsi que tout l'alphabet avec majuscules et minuscules dans un mot de passe de 5 caractères, cela fait (10+26*2)^5 = 916 132 832
-- si on n'utilise que des chiffres dans un mot de passe de 10 caractères, cela fait 10^10 = 10 000 000 000
+- si on utilise les chiffres ainsi que tout l'alphabet avec majuscules et minuscules dans un mot de passe de 5 caractères, cela fait (10+26*2)^5 = **916 132 832 possibilités**
+- si on n'utilise que des chiffres dans un mot de passe de 10 caractères, cela fait 10^10 = **10 000 000 000 possibilités** (un peu plus de 10 fois plus que dans le cas précédent !)
 
 D'après la documentation de 7-zip, une organisation avec un budget d'un milliard de dollars et pouvant tester 10 milliards de mots de passe à la seconde (avec une puissance processeur qui double tous les deux ans) mettrait **4 ans** à trouver un mot de passe de **13 caractères**.
 
@@ -104,11 +104,13 @@ L'algorithme de chiffrement est la méthode qui permet de chiffrer les données.
 Comme on peut le voir lorsqu'on crée une archive chiffrée, 7-zip utilise l'algorithme AES-256.
 
 La plupart des algorithmes de chiffrement sont publics et connus de tous, mais sont conçu de manière à ce qu'il ne soit pas possible de déchiffrer des données sans connaitre la clé.
-Il est déjà arrivé que quelqu'un découvre une faille dans la conception d'un algorithme qui permette de découvrir le mot de passe ou d'accélérer sa découverte.
+La sécurité repose donc sur la clé, et non sur la méthode de (dé)chiffrement.
+
+Il est déjà arrivé que quelqu'un découvre une faille dans la conception d'un algorithme qui permette de déchiffrer les données sans le mot de passe ou d'accélérer la découverte de ce dernier.
 On dit alors que l'algorithme a été cassé.
 
-L'AES date des années 2000, et n'a, pour l'heure, par été cassé.
-Il est utilisé dans beaucoup d'organisation diverses, et il est peut probable que quelqu'un réussisse à le casser avant un moment.
+L'AES date des années 2000, et n'a, pour l'heure, pas été cassé.
+Il est utilisé par beaucoup d'organisation et de systèmes divers, et il est peu probable que quelqu'un réussisse à le casser avant un moment.
 Et dans ce cas là, nos petites données échangées par email ne seraient pas la cible la plus critique...
 
 ## Licence

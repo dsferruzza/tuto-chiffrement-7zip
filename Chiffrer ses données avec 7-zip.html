@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
 body{
   color:#444;
@@ -127,7 +125,7 @@ body{font-size:16px;}
 
 <h2 id="sommaire">Sommaire</h2>
 
-<p></p><ul>
+<p><ul>
   <li><a href="#chiffrer-ses-donnees-avec-7-zip">Chiffrer ses données avec 7-zip</a>
   <ul>
     <li><a href="#sommaire">Sommaire</a></li>
@@ -143,7 +141,7 @@ body{font-size:16px;}
     <li><a href="#licence">Licence</a></li>
   </ul></li>
 </ul>
-<p></p>
+</p>
 
 <h2 id="prerequis">Prérequis</h2>
 
@@ -154,9 +152,7 @@ body{font-size:16px;}
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Le chiffrement, ou cryptage, consiste à rendre une donnée 
-inexploitable à toute personne ne possédant pas la clé de 
-(dé)chiffrement.</p>
+<p>Le chiffrement, ou cryptage, consiste à rendre une donnée inexploitable à toute personne ne possédant pas la clé de (dé)chiffrement.</p>
 
 <p>Avec 7-zip :</p>
 
@@ -166,36 +162,30 @@ inexploitable à toute personne ne possédant pas la clé de
 <li>la clé est un mot de passe</li>
 </ul>
 
-<p>7-zip est avant tout un logiciel de création d'archives, ce qui veut 
-dire qu'il permet de compresser les fichiers avant de les chiffrer.
-Créer des archives chiffrées avec 7-zip est donc idéal pour <strong>échanger</strong> des données sensible ou <strong>stocker</strong> ces données.</p>
+<p>7-zip est avant tout un logiciel de création d'archives, ce qui veut dire qu'il permet de compresser les fichiers avant de les chiffrer.
+Créer des archives chiffrées avec 7-zip est donc idéal pour <strong>échanger</strong> des données sensibles ou <strong>stocker</strong> ces données.</p>
 
-<p>Par contre, créer une archive 7-zip chiffrée implique d'avoir les données <strong>en clair</strong>
- sur son disque dur.
-De même, lors de la lecture du contenu d'une archive, 7-zip va 
-l'extraire dans un dossier temporaire pour permettre aux logiciels 
-concernés d'accéder aux données.</p>
+<p>Par contre, créer une archive 7-zip chiffrée implique d'avoir les données <strong>en clair</strong> sur son disque dur.
+De même, lors de la lecture du contenu d'une archive, 7-zip va l'extraire dans un dossier temporaire pour permettre aux logiciels concernés d'accéder aux données.</p>
 
 <p>Chiffrer ses données grâce à 7-zip ne sécurise donc <strong>pas</strong> les données sur les ordinateurs qui vont créer ou ouvrir l'archive !</p>
 
-<p>L'intérêt est, par exemple, de protéger les données pendant leur 
-envoi par email.
-Si l'email est intercepté par une personne tierce, celle-ci ne pourra 
-par lire les données de l'archive sans son mot de passe.
-C'est également appréciable lorsqu'on sait que la plupart des grands 
-fournisseurs de boites email ne suppriment jamais vraiment nos données 
-et y ont accès.</p>
+<p>L'intérêt est, par exemple, de protéger les données pendant leur envoi par email.
+Si l'email est intercepté par une personne tierce, celle-ci ne pourra pas lire les données de l'archive sans son mot de passe.
+C'est également appréciable lorsqu'on sait que la plupart des grands fournisseurs de boites email ne suppriment jamais vraiment nos données et y ont accès.</p>
+
+<p><em>Pour chiffrer des données sur lesquelles on est en train de travailler, il vaut mieux se tourner vers des solutions de chiffrement à la volée, comme <a href="http://www.truecrypt.org/">TrueCrypt</a>, <a href="https://fr.wikipedia.org/wiki/GNU_Privacy_Guard">GPG</a> ou <a href="http://www.arg0.net/encfs">EncFS</a>.</em></p>
 
 <h2 id="chiffrer-avec-7-zip">Chiffrer avec 7-zip</h2>
 
-<p>Pour créer une archive chiffrée, il faut procéder de la même manière que pour créer une archive normal avec 7-zip.</p>
+<p>Pour créer une archive chiffrée, il faut procéder de la même manière que pour créer une archive normale avec 7-zip.</p>
 
 <p>La plupart du temps, on sélectionne les fichiers/dossiers qu'on veut placer dans l'archive, on fait un clic droit, et on choisi <code>7-zip &gt; Ajouter à l'archive...</code>.
 On peut également, depuis la fenêtre de <strong>7-zip File Manager</strong>, sélectionner les fichiers/dossiers et cliquer sur <code>Ajouter</code>.</p>
 
 <p>Dans les deux cas, la boite de dialogue de création d'archive s'ouvre :</p>
 
-<p><img src="Chiffrer%20ses%20donn%C3%A9es%20avec%207-zip_fichiers/creation.png" alt="Boite de dialogue de création d'archive"></p>
+<p><img src="file://D:\Users\David\Documents\Amélie\tuto-chiffrage-7zip/images/creation.png" alt="Boite de dialogue de création d'archive" /></p>
 
 <p>Voici les principaux réglages pour une archive classique :</p>
 
@@ -210,8 +200,8 @@ On a plusieurs réglages :</p>
 
 <ul>
 <li>le mot de passe avec lequel on veut chiffrer l'archive (il est masqué à la saisie, donc il faut le saisir deux fois)</li>
-<li><code>Afficher le mot de passe</code> permet de ne pas masquer le mot de passe lors de sa saisie et supprime donc le champ de vérification mentionné juste avant</li>
-<li><code>Méthode de cryptage</code> : je recommande AES-256</li>
+<li><code>Afficher le mot de passe</code> permet de ne pas masquer le mot de passe lors de sa saisie et supprime donc un des deux champs de saisie du mot de passe</li>
+<li><code>Méthode de cryptage</code> : je recommande <strong>AES-256</strong></li>
 <li><code>Crypter les noms de fichier</code> : je recommande de l'activer</li>
 </ul>
 
@@ -222,34 +212,29 @@ On a plusieurs réglages :</p>
 <p>Ouvrir une archive chiffrée se fait de la même manière qu'une archive normale.
 La plupart du temps, il suffit de double cliquer dessus (depuis l'explorateur de fichiers ou depuis <strong>7-zip File Manager</strong>).</p>
 
-<p>Si <code>Crypter les noms de fichier</code> a été coché à la créations de l'archive, le mot de passe est demandé :</p>
+<p>Si <code>Crypter les noms de fichier</code> a été coché à la création de l'archive, le mot de passe est demandé :</p>
 
-<p><img src="Chiffrer%20ses%20donn%C3%A9es%20avec%207-zip_fichiers/ouverture.png" alt="Boite de dialogue d'ouverture d'archive chiffrée"></p>
+<p><img src="file://D:\Users\David\Documents\Amélie\tuto-chiffrage-7zip/images/ouverture.png" alt="Boite de dialogue d'ouverture d'archive chiffrée" /></p>
 
 <p>Lorsque le mot de passe a été saisi, il est possible d'accéder au contenu de l'archive normalement.</p>
 
-<p>Si <code>Crypter les noms de fichier</code> n'a pas été coché à la 
-créations de l'archive, l'archive s'ouvrira normalement et on pourra 
-voir la liste des fichiers/dossiers qu'elle contient.
+<p>Si <code>Crypter les noms de fichier</code> n'a pas été coché à la création de l'archive, l'archive s'ouvrira normalement et on pourra voir la liste des fichiers/dossiers qu'elle contient.
 Le mot de passe sera demandé dès qu'on accédera à un des fichiers.</p>
 
 <h2 id="vulnerabilites-du-chiffrement">Vulnérabilités du chiffrement</h2>
 
-<p>Déjà, comme expliqué en introduction, 7-zip n'apporte pas de sécurité sur les ordinateurs amenés à créer ou ouvrir l'archive.
+<p>Premièrement, comme expliqué en introduction, 7-zip n'apporte pas de sécurité sur les ordinateurs amenés à créer ou ouvrir l'archive.
 L'intérêt est d'empêcher des tiers de pouvoir ouvrir l'archive.</p>
 
 <p>Aucune sécurité n'est infaillible, et il faut comprendre comment une archive peut être ouverte sans la clé.</p>
 
 <h3 id="attaques-par-force-brute">Attaques par force brute</h3>
 
-<p>Une attaque par force brute (ou <em>brute-force</em> en anglais) concise à essayer tous les mots de passe possibles jusqu'à trouver le bon.</p>
+<p>Une attaque par force brute (ou <em>brute-force</em> en anglais) consiste à essayer tous les mots de passe possibles jusqu'à trouver le bon.</p>
 
-<p>Il existe des variantes, comme <em>l'attaque par dictionnaire</em> 
-qui va essayer en priorité des mots de passes communs contenus dans une 
-liste (des mots courants par exemple), dans le but de trouver plus 
-rapidement le bon mot de passe.</p>
+<p>Il existe des variantes, comme <em>l'attaque par dictionnaire</em> qui va essayer en priorité des mots de passes communs contenus dans une liste (des mots courants par exemple), dans le but de trouver plus rapidement le bon mot de passe.</p>
 
-<p>Avec le matériel moderne, il est possible de tester très rapidement beaucoup de mots de passe pour un coût relativement faible.
+<p>Avec du matériel moderne, il est possible de tester très rapidement beaucoup de mots de passe pour un coût relativement faible.
 Pour ralentir ce genre d'attaques, il y a deux axes possibles :</p>
 
 <ul>
@@ -261,38 +246,29 @@ Pour ralentir ce genre d'attaques, il y a deux axes possibles :</p>
 Par exemple :</p>
 
 <ul>
-<li>si on utilise les chiffres ainsi que tout l'alphabet avec majuscules
- et minuscules dans un mot de passe de 5 caractères, cela fait 
-(10+26*2)^5 = 916 132 832</li>
-<li>si on n'utilise que des chiffres dans un mot de passe de 10 caractères, cela fait 10^10 = 10 000 000 000</li>
+<li>si on utilise les chiffres ainsi que tout l'alphabet avec majuscules et minuscules dans un mot de passe de 5 caractères, cela fait (10+26*2)^5 = <strong>916 132 832 possibilités</strong></li>
+<li>si on n'utilise que des chiffres dans un mot de passe de 10 caractères, cela fait 10^10 = <strong>10 000 000 000 possibilités</strong> (un peu plus de 10 fois plus que dans le cas précédent !)</li>
 </ul>
 
-<p>D'après la documentation de 7-zip, une organisation avec un budget 
-d'un milliard de dollars et pouvant tester 10 milliards de mots de passe
- à la seconde (avec une puissance processeur qui double tous les deux 
-ans) mettrait <strong>4 ans</strong> à trouver un mot de passe de <strong>13 caractères</strong>.</p>
+<p>D'après la documentation de 7-zip, une organisation avec un budget d'un milliard de dollars et pouvant tester 10 milliards de mots de passe à la seconde (avec une puissance processeur qui double tous les deux ans) mettrait <strong>4 ans</strong> à trouver un mot de passe de <strong>13 caractères</strong>.</p>
 
 <h3 id="faille-dans-lalgorithme-de-chiffrement">Faille dans l'algorithme de chiffrement</h3>
 
 <p>L'algorithme de chiffrement est la méthode qui permet de chiffrer les données.
 Comme on peut le voir lorsqu'on crée une archive chiffrée, 7-zip utilise l'algorithme AES-256.</p>
 
-<p>La plupart des algorithmes de chiffrement sont publics et connus de 
-tous, mais sont conçu de manière à ce qu'il ne soit pas possible de 
-déchiffrer des données sans connaitre la clé.
-Il est déjà arrivé que quelqu'un découvre une faille dans la conception 
-d'un algorithme qui permette de découvrir le mot de passe ou d'accélérer
- sa découverte.
+<p>La plupart des algorithmes de chiffrement sont publics et connus de tous, mais sont conçu de manière à ce qu'il ne soit pas possible de déchiffrer des données sans connaitre la clé.
+La sécurité repose donc sur la clé, et non sur la méthode de (dé)chiffrement.</p>
+
+<p>Il est déjà arrivé que quelqu'un découvre une faille dans la conception d'un algorithme qui permette de déchiffrer les données sans le mot de passe ou d'accélérer la découverte de ce dernier.
 On dit alors que l'algorithme a été cassé.</p>
 
-<p>L'AES date des années 2000, et n'a, pour l'heure, par été cassé.
-Il est utilisé dans beaucoup d'organisation diverses, et il est peut 
-probable que quelqu'un réussisse à le casser avant un moment.
-Et dans ce cas là, nos petites données échangées par email ne seraient 
-pas la cible la plus critique...</p>
+<p>L'AES date des années 2000, et n'a, pour l'heure, pas été cassé.
+Il est utilisé par beaucoup d'organisation et de systèmes divers, et il est peu probable que quelqu'un réussisse à le casser avant un moment.
+Et dans ce cas là, nos petites données échangées par email ne seraient pas la cible la plus critique...</p>
 
 <h2 id="licence">Licence</h2>
 
 <p>David Sferruzza, 2013
 <a href="https://creativecommons.org/licenses/by-sa/2.0/deed.fr">Creative Commons 2.0 BY-SA</a></p>
-</body></html>
+</body>
