@@ -56,6 +56,9 @@ On a plusieurs réglages :
 - `Méthode de cryptage` : je recommande **AES-256**
 - `Crypter les noms de fichier` : je recommande de l'activer
 
+Il convient de choisir un mot de passe long (> 10 caractères) pour assurer un bon chiffrement.
+De plus, il est plus malin d'échanger ce mot de passe avec le destinataire des données en utilisant un autre moyen de communication que celui qu'emprunteront les futures données chiffrées pour éviter l'interception de la clé **et** des données chiffrées en même temps (l'idéal étant de se mettre d'accord en personne).
+
 Il suffit ensuite de valider et l'archive sera créée !
 
 ## Déchiffrer avec 7-zip
