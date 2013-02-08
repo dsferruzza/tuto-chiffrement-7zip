@@ -47,7 +47,7 @@ Dans les deux cas, la boite de dialogue de création d'archive s'ouvre :
 Voici les principaux réglages pour une archive classique :
 - `Archive` : le nom et l'emplacement où sera créée l'archive
 - `Format de fichier` : je recommande de choisir **7z** ; **zip** est moins performant mais peut servir pour être sûr que l'archive soit lisible par tout le monde
-- `Niveau de compression` : je recommande **Ultra** pour des données de type textuelles, **Normal** pour des médias dans des formats déjà compressés (jpeg, mp3, ...), ou **Aucune** si la compression n'est pas nécessaire ou non désirée (très gros fichiers = compression lente)
+- `Niveau de compression` : je recommande **Ultra** pour des données de type textuel, **Normal** pour des médias dans des formats déjà compressés (jpeg, mp3, ...), ou **Aucune** si la compression n'est pas nécessaire ou non désirée (très gros fichiers = compression lente)
 
 Pour chiffrer l'archive, il faut regarder dans la section `Cryptage`.
 On a plusieurs réglages :
