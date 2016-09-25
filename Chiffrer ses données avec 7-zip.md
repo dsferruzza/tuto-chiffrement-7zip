@@ -96,7 +96,7 @@ Pour ralentir ce genre d'attaques, il y a deux axes possibles :
 
 La deuxième solution est bien plus efficace, car le nombre d'essais équivaut au nombre de caractères possibles **puissance** le nombre de caractères du mot de passe.
 Par exemple :
-- si on utilise les chiffres ainsi que tout l'alphabet avec majuscules et minuscules dans un mot de passe de 5 caractères, cela fait (10+26*2)^5 = **916 132 832 possibilités**
+- si on utilise les chiffres ainsi que tout l'alphabet avec majuscules et minuscules dans un mot de passe de 5 caractères, cela fait (10+26\*2)^5 = **916 132 832 possibilités**
 - si on n'utilise que des chiffres dans un mot de passe de 10 caractères, cela fait 10^10 = **10 000 000 000 possibilités** (un peu plus de 10 fois plus que dans le cas précédent !)
 
 D'après la documentation de 7-zip, une organisation avec un budget d'un milliard de dollars et pouvant tester 10 milliards de mots de passe à la seconde (avec une puissance processeur qui double tous les deux ans) mettrait **4 ans** à trouver un mot de passe de **13 caractères**.
